@@ -3,10 +3,10 @@
 # 標準入力からプログラムを読み込み、標準出力にWhitespaceプログラムを出力する
 @command = [
   ["PUSH", "SS", "d"],
-  ["POP","SLS",""],
+  ["DUP","SLS",""],
   ["COPY","STS","d"],
   ["SWAP","SLT",""],
-  ["DISCARD","SLL",""],
+  ["POP","SLL",""],
   ["SLIDE","STL",""],
   
   ["ADD","TSSS",""],
@@ -36,6 +36,11 @@
 
 @labels = {}
 def get_number(number)
+  if number.to_s[0] == "'"
+    number=number[1].bytes.to_a[0].to_i
+  else
+    number=number.to_i
+  end
   ret = ""
   if number >= 0
     ret = "S"
@@ -82,7 +87,7 @@ while command = gets
         show_error line, "Require Parameter"
       end
       if command[2] == "d"
-        program << get_number(param.to_i)
+        program << get_number(param)
       elsif command[2] == "l"
         program << get_label(param)
       end
