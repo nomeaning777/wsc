@@ -52,7 +52,7 @@ def get_number(number)
   return ret + "L"
 end
 
-def get_labal(label)
+def get_label(label)
   unless @label.key?(label)
     tar = @label.size + 1
     @label[key] = tar
