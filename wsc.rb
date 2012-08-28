@@ -34,7 +34,7 @@
 
 @chars = {"T" => "\t", "L" => "\n", "S" => " "}
 
-@labels = {}
+@labels = Hash.new 
 def get_number(number)
   if number.to_s[0] == "'"
     number=number[1].bytes.to_a[0].to_i
@@ -53,11 +53,11 @@ def get_number(number)
 end
 
 def get_label(label)
-  unless @label.key?(label)
-    tar = @label.size + 1
-    @label[key] = tar
+  unless @labels.key?(label)
+    tar = @labels.size + 1
+    @labels[label] = tar
   end
-  return get_number(@label[key])
+  return get_number(@labels[label])
 end
 
 def show_error(line, mes)
