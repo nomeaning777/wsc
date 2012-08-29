@@ -7,7 +7,7 @@
   ["COPY","STS","d"],
   ["SWAP","SLT",""],
   ["POP","SLL",""],
-  ["SLIDE","STL",""],
+  ["SLIDE","STL","d"],
   
   ["ADD","TSSS",""],
   ["SUB","TSST",""],
